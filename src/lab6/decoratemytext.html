@@ -35,8 +35,11 @@
 <fieldset class="decoration">
 
     <legend>Decoration</legend>
-    <div><input id="bigger_decoration" type="button" value="Bigger Decoration" onclick="showGreet()"/></div>
-    <div><input type="checkbox" name="bling">Bling</div>
+    <div><input id="bigger_decoration" type="button" value="Bigger Decoration"
+                onclick="setInterval(increaseFontSizeBy2, 500)"/></div>
+    <div><input id="cb" type="checkbox" name="bling" onchange="setBackgroundd()"
+    >Bling
+    </div>
 </fieldset>
 
 </body>

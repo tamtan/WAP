@@ -10,16 +10,18 @@
     border-bottom: none;
 }
 
-#bigger_decoration{
+#bigger_decoration {
     border: 1px solid gray;
     border-radius: 3px;
+    font-size: 12pt;
+}
 
-}body {
-     font-family: "Arial", "Helvetica", sans-serif;
-     font-size: 12pt;
-     margin-left: 20px;
-     margin-right: 20px;
- }
+body {
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 12pt;
+    margin-left: 20px;
+    margin-right: 20px;
+}
 
 #header {
     text-align: center;
