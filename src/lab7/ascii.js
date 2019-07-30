@@ -1,4 +1,5 @@
-
+/*jshint esversion: 6*/
+/* globals ANIMATIONS */
 (function () {
     "use strict";
     var index = 0;
