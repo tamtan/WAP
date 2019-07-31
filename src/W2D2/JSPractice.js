@@ -123,13 +123,21 @@ console.log("Expected output of reverseArray([\"a\", \"b\", \"d\", \"e\"]) is [\
 console.log("Expected output of reverseArrayInPlace([\"a\", \"b\", \"d\", \"e\"]) is [\"e\", \"d\", \"b\", \"a\"] "
     + myFunctionTestArr(["e", "d", "b", "a"], reverseArrayInPlace(["a", "b", "d", "e"])));
 
+console.log("arrayToList([\"a\", \"b\", \"d\", \"e\"]) is ");
+
 console.log(arrayToList(arr));
 
-console.log(listToArray(arrayToList(arr)));
+console.log("Expected output of listToArray(arrayToList([\"a\", \"b\", \"d\", \"e\"])) is [\"a\", \"b\", \"d\", \"e\"] "
+    + myFunctionTestArr(["a", "b", "d", "e"], listToArray(arrayToList(["a", "b", "d", "e"]))));
+
+console.log("prepend(10, prepend(20, null)) is");
 
 console.log(prepend(10, prepend(20, null)));
 
-console.log(nth(arrayToList([10, 20, 30]), 1));
+console.log("Expected output of nth(arrayToList([10, 20, 30]), 1) is 20 "
+    + myFunctionTest(20, nth(arrayToList([10, 20, 30]), 1)));
 
 var obj = {here: {is: "an"}, object: 2};
-console.log(deepEqual(obj, obj));
+
+console.log("Expected output of deepEqual(obj, obj) is true "
+    + myFunctionTest(true, deepEqual(obj, obj)));
