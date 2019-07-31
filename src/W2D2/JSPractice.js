@@ -2,6 +2,102 @@
 // use strict
 // well formatted code with short comment on each function or method
 
+// Problem 1: Reverse an Array
+function reverseArray(arr) {
+    let reversed = [];
+    let i, j;
+    if (arr.length % 2 == 0) {
+        i = arr.length / 2 - 1;
+        j = arr.length / 2;
+    } else {
+        i = arr.length / 2 - 1;
+        j = arr.length / 2 + 1;
+        reversed.push(arr[arr.length / 2]);
+    }
+
+    for (; i >= 0; i--, j++) {
+        reversed.push(arr[i]);
+        reversed.unshift(arr[j]);
+    }
+
+    return reversed;
+}
+
+function reverseArrayInPlace(arr) {
+    for (let i = 0, j = arr.length - 1; i <= j; i++, j--) {
+        let temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+
+// Problem 2: A List
+arrayToList = (arr) => {
+    let list = null;
+    for (let i = arr.length - 1; i >= 0; i--) {
+        list = {
+            value: arr[i],
+            rest: list
+        }
+    }
+    return list;
+}
+
+listToArray = (list) => {
+    let arr = [];
+    for (const prop in list) {
+        const value = list[prop];
+        typeof value === 'object' ? arr.push(listToArray(value)) : arr.push(value);
+    }
+    arr = [].concat.apply([], arr);
+    return arr;
+}
+
+prepend = (value, rest) => {
+    let list = {
+        value: value,
+        rest: rest,
+    }
+    return list;
+}
+
+nth = (list, num) => {
+    let answer;
+    return num === 0 ? (list.value) : (nth(list.rest, num - 1));
+}
+
+//Problem 3: Deep comparison
+deepEqual = (obj1, obj2) => {
+    return JSON.stringify(obj1) === JSON.stringify(obj2) ? true : false;
+}
+
+var arr = ["a", "b", "d", "e"];
+console.log("Expected output of reverseArray([\"a\", \"b\", \"d\", \"e\"]) is [\"e\", \"d\", \"b\", \"a\"] "
+    + myFunctionTestArr(arr, reverseArray(arr)));
+
+console.log("Expected output of reverseArrayInPlace([\"a\", \"b\", \"d\", \"e\"]) is [\"e\", \"d\", \"b\", \"a\"] "
+    + myFunctionTestArr(["e", "d", "b", "a"], reverseArrayInPlace(["a", "b", "d", "e"])));
+
+console.log("arrayToList([\"a\", \"b\", \"d\", \"e\"]) is ");
+
+console.log(arrayToList(arr));
+
+console.log("Expected output of listToArray(arrayToList([\"a\", \"b\", \"d\", \"e\"])) is [\"a\", \"b\", \"d\", \"e\"] "
+    + myFunctionTestArr(["a", "b", "d", "e"], listToArray(arrayToList(["a", "b", "d", "e"]))));
+
+console.log("prepend(10, prepend(20, null)) is");
+
+console.log(prepend(10, prepend(20, null)));
+arr
+console.log("Expected output of nth(arrayToList([10, 20, 30]), 1) is 20 "
+    + myFunctionTest(20, nth(arrayToList([10, 20, 30]), 1)));
+
+var obj = {here: {is: "an"}, object: 2};
+
+console.log("Expected output of deepEqual(obj, obj) is true "
+    + myFunctionTest(true, deepEqual(obj, obj)));
+
 //test function
 function myFunctionTest(expected, found) {
     if (expected === found) {
@@ -55,89 +151,3 @@ function isEqual(value, other) {
     return true;
 
 };
-
-// Problem 1: Reverse an Array
-function reverseArray(arr) {
-    let reversed = []
-    for (let i = arr.length - 1; i >= 0; i--) {
-        reversed.push(arr[i]);
-    }
-    return reversed;
-}
-
-function reverseArrayInPlace(arr) {
-    let count = 0;
-    for (let i = 0; i <= Math.floor(arr.length / 2); i++) {
-        var ascendingEl = arr[i];
-
-        arr[i] = arr[arr.length - 1 - i]
-        arr[arr.length - 1 - i] = ascendingEl;
-    }
-    return arr;
-}
-
-// Problem 2: A List
-arrayToList = (arr) => {
-    let list = null;
-    for (let i = arr.length - 1; i >= 0; i--) {
-        list = {
-            value: arr[i],
-            rest: list
-        }
-    }
-    return list;
-}
-
-listToArray = (list) => {
-    let arr = [];
-    for (const prop in list) {
-        const value = list[prop];
-        typeof value === 'object' ? arr.push(listToArray(value)) : arr.push(value);
-    }
-    arr = [].concat.apply([], arr);
-    return arr;
-}
-
-prepend = (value, rest) => {
-    let list = {
-        value: value,
-        rest: rest,
-    }
-    return list;
-}
-
-nth = (list, num) => {
-    let answer;
-    return num === 0 ? (list.value) : (nth(list.rest, num - 1));
-}
-
-//Problem 3: Deep comparison
-deepEqual = (obj1, obj2) => {
-    return JSON.stringify(obj1) === JSON.stringify(obj2) ? true : false;
-}
-
-var arr = ["a", "b", "d", "e"];
-console.log("Expected output of reverseArray([\"a\", \"b\", \"d\", \"e\"]) is [\"e\", \"d\", \"b\", \"a\"] "
-    + myFunctionTestArr(["e", "d", "b", "a"], reverseArray(["a", "b", "d", "e"])));
-
-console.log("Expected output of reverseArrayInPlace([\"a\", \"b\", \"d\", \"e\"]) is [\"e\", \"d\", \"b\", \"a\"] "
-    + myFunctionTestArr(["e", "d", "b", "a"], reverseArrayInPlace(["a", "b", "d", "e"])));
-
-console.log("arrayToList([\"a\", \"b\", \"d\", \"e\"]) is ");
-
-console.log(arrayToList(arr));
-
-console.log("Expected output of listToArray(arrayToList([\"a\", \"b\", \"d\", \"e\"])) is [\"a\", \"b\", \"d\", \"e\"] "
-    + myFunctionTestArr(["a", "b", "d", "e"], listToArray(arrayToList(["a", "b", "d", "e"]))));
-
-console.log("prepend(10, prepend(20, null)) is");
-
-console.log(prepend(10, prepend(20, null)));
-
-console.log("Expected output of nth(arrayToList([10, 20, 30]), 1) is 20 "
-    + myFunctionTest(20, nth(arrayToList([10, 20, 30]), 1)));
-
-var obj = {here: {is: "an"}, object: 2};
-
-console.log("Expected output of deepEqual(obj, obj) is true "
-    + myFunctionTest(true, deepEqual(obj, obj)));
