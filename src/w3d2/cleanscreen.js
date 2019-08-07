@@ -9,6 +9,7 @@ $(document).ready(function () {
     }
 
     var removeEle = function () {
+        alert(1);
         this.remove();
     };
 
@@ -34,7 +35,12 @@ $(document).ready(function () {
                     [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'][Math.floor(Math.random() * 16)])
                 && (lor.length == 6) ? lor : co(lor);
             })('');
-            var divStr = "<div class='circle' style='top:" + posx + "; left:" + posy + ";background-color:"+hexColor+"'></div>";
+            let divStr = $(`<div class='circle' style='top:${posx}; left:${posy};background-color:${hexColor}'></div>`);
+
+            divStr.on('click', () => {
+                divStr.remove();
+            });
+
             $("#container").append(divStr);
         }
         setInterval(function () {
@@ -46,7 +52,7 @@ $(document).ready(function () {
     // setInterval(increaseSize, 250);
 
     //3. Remove the circle when you click on it.
-    $(".circle").click(removeEle);
+    //$(".circle").click(removeEle);
 
     //4. ‘Start’ is clicked the circle should appear
     $("#btnStart").click(addCircle);
