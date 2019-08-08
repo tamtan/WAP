@@ -29,18 +29,35 @@ public class CalculatorServlet extends HttpServlet {
             // do nothing
         }
 
+        StringBuilder sb = new StringBuilder("<form action='calculate' method='post'>");
+        buildForm(firstSumNum, secondSumNum, sb, "firstNum", "secondNum", "+");
+        buildForm(firstMulNum, secondMulNum, sb, "thirdNum", "fourthNum", "*");
+        sb.append("<br><input type='submit' value='Submit'/></form>");
+
+        response.setContentType("text/html");
+
         PrintWriter out = response.getWriter();
-
-        if (firstSumNum != null && secondSumNum != null) {
-            out.print("<p>" + firstSumNum + " + " + secondSumNum + " = " + (firstSumNum + secondSumNum) + "</p>");
-        }
-
-        if (firstMulNum != null && secondMulNum != null) {
-            out.print("<p>" + firstMulNum + " * " + secondMulNum + " = " + (firstMulNum * secondMulNum) + "</p>");
-        }
+        out.print(sb.toString());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
+    private void buildForm(Integer firstNum, Integer secondNum, StringBuilder sb, String firstInputName,
+                           String secondInputName, String action) {
+        sb.append("<div>");
+        sb.append("<input type='text' name='" + firstInputName +"'");
+        if(firstNum != null) {
+            sb.append("value='" + firstNum + "'");
+        }
+        sb.append("/> " + action +" <input type='text' name='" + secondInputName + "'");
+        if (secondNum != null) {
+            sb.append("value='" + secondNum + "'");
+        }
+        sb.append("'/>=<input type='text' name='" + action + "'");
+        if (firstNum!= null && secondNum != null) {
+            sb.append("value='" + ("+".equals(action) ? (firstNum + secondNum) : (firstNum * secondNum)) + "'");
+        }
+        sb.append("</div>");
     }
 }

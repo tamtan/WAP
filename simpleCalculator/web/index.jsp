@@ -16,15 +16,11 @@
         <input name="firstNum" type="text">
         +
         <input name="secondNum" type="text">
-        =
-        <input name="sum" type="text">
     </div>
     <div>
         <input name="thirdNum" type="text">
         *
         <input name="fourthNum" type="text">
-        =
-        <input name="product" type="text">
     </div>
     <div>
         <input id="btnSubmit" type="submit">
