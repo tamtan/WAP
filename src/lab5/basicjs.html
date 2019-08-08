@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /* runs test to see if expected argument is === to value returned by function2test argument */
+        function myFunctionTest(expected, found) {
+            if (expected === found) {
+                return "TEST SUCCEEDED";
+            } else {
+                return "TEST FAILED.  Expected " + expected + " found " + found;
+            }
+        }
+
+        function myFunctionTestArr(expected, found) {
+
+            if (isEqual(expected, found)) {
+                return "TEST SUCCEEDED";
+            } else {
+                return "TEST FAILED.  Expected " + expected + " found " + found;
+            }
+        }
+
+        // Define a function max() that takes two numbers as arguments and returns the largest of them. Use the if-then-else construct available in Javascript.
+        function max(x, y) {
+            if (x > y) {
+                return x;
+            } else {
+                return y;
+            }
+        }
+
+        console.log("Expected output of max(3,6) is 6 " + myFunctionTest(6, max(3, 6)));
+        console.log("Expected output of max(30,6) is 30 " + myFunctionTest(30, max(30, 6)));
+
+        // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
+        function maxOfThree(x, y, z) {
+            var max = x;
+            if (max < y) {
+                max = y;
+            }
+
+            if (max < z) {
+                max = z;
+            }
+            return max;
+        }
+
+        console.log("Expected output of maxOfThree(3,6,9) is 9 " + myFunctionTest(9, maxOfThree(3, 6, 9)));
+        console.log("Expected output of maxOfThree(30,60, 20) is 60 " + myFunctionTest(60, maxOfThree(30, 60, 20)));
+
+        // Write a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
+        function isVowel(c) {
+
+            return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U' || false;
+
+        }
+
+        console.log("Expected output of isVowel(a) is true " + myFunctionTest(true, isVowel("a")));
+        console.log("Expected output of isVowel(abc) is false " + myFunctionTest(false, isVowel("abc")));
+
+        // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
+        function sum(arr) {
+            return arr.reduce(function (a, b) {
+                return a + b
+            }, 0);
+        }
+
+        function multiply(arr) {
+            // return arr.reduce(function (a, b) {
+            //     return a * b
+            // }, 0);
+            var prod = 1;
+            for (var i = 0; i < arr.length; i++) {
+                prod = prod * arr[i];
+            }
+            return prod;
+        }
+
+
+        console.log("Expected output of sum([1,2,3,4]) is 10 " + myFunctionTest(10, sum([1, 2, 3, 4])));
+        console.log("Expected output of multiply([1,2,3,4]) is 24 " + myFunctionTest(24, multiply([1, 2, 3, 4])));
+
+        //         Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
+        function reverse(str) {
+            if (str === "") {
+                return str
+            } else {
+                return reverse(str.substr(1)) + str[0]
+            }
+        }
+
+        console.log("Expected output of reverse(\"jag testar\") is \"ratset gaj\" " + myFunctionTest("ratset gaj", reverse("jag testar")));
+
+        //Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
+        function findLongestWord(strArr) {
+            var longestWord = 0;
+
+            // Step 3. Create the FOR loop
+            for (var i = 0; i < strArr.length; i++) {
+                if (strArr[i].length > longestWord) { // If strSplit[i].length is greater than the word it is compared with...
+                    longestWord = strArr[i].length; // ...then longestWord takes this new value
+                }
+            }
+            return longestWord;
+        }
+
+        console.log("Expected output of " +
+            "findLongestWord([\"The\", \"quick\", \"brown\", \"fox\", \"jumped\", \"over\", \"the\", \"lazy\", \"dog\"]) " +
+            "is 6 " + myFunctionTest(6, findLongestWord(["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"])));
+
+        //             Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
+        function filterLongWords(strArr, n) {
+            var result = new Array();
+            for (var i = 0; i < strArr.length; i++) {
+                if (strArr[i].length > n) {
+                    result.push(strArr[i]);
+                }
+            }
+            return result;
+
+        }
+
+        console.log("Expected output of " +
+            "filterLongWords([\"The\", \"quick\", \"brown\", \"fox\", \"jumped\", \"over\", \"the\", \"lazy\", \"dog\"], 4) " +
+            "is [quick,brown,jumped] " + myFunctionTestArr(new Array("quick", "brown", "jumped"), filterLongWords(["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"], 4)));
+
+        //             Modify the jsfiddle on the map/filter/reduce slide as follows:
+        //
+        //         a) multiply each element by 10;
+        const a = [1, 3, 5, 3, 3];
+        const b = a.map(function (elem, i, arr) {
+            return elem * 10;
+        })
+        console.log(b);
+        //         b) return array with all elements equal to 3;
+        const c = a.filter(function (elem, i, arr) {
+            return elem === 3;
+        })
+
+        console.log(c);
+        //         c) return the product of all elements;
+        const d = a.reduce(function (pre, elem, i, arr) {
+            return pre * elem;
+        })
+        console.log(d);
+
+        //this function check two array value
+        function isEqual(value, other) {
+
+            // Get the value type
+            var type = Object.prototype.toString.call(value);
+
+            // If the two objects are not the same type, return false
+            if (type !== Object.prototype.toString.call(other)) return false;
+
+            // If items are not an object or array, return false
+            if (['[object Array]', '[object Object]'].indexOf(type) < 0) return false;
+
+            // Compare the length of the length of the two items
+            var valueLen = type === '[object Array]' ? value.length : Object.keys(value).length;
+            var otherLen = type === '[object Array]' ? other.length : Object.keys(other).length;
+            if (valueLen !== otherLen) return false;
+
+            // Compare properties
+            if (type === '[object Array]') {
+                for (var i = 0; i < valueLen; i++) {
+                    // Compare the item
+                }
+            } else {
+                for (var key in value) {
+                    if (value.hasOwnProperty(key)) {
+                        // Compare the item
+                    }
+                }
+            }
+
+            // If nothing failed, return true
+            return true;
+
+        };
+    </script>
+</head>
+<body>
+Look in the Chrome developer console to see the output. CTRL_SHIFT_J
+</body>
+</html>

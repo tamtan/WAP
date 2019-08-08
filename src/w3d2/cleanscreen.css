@@ -1,0 +1,26 @@
+div {
+    margin: 5px;
+}
+
+input[type="button"] {
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
+
+/*1. Make a circle somewhere in the central area of the window that is 50px wide. */
+/*div.circle {*/
+/*height: 50px;*/
+/*width: 50px;*/
+/*background-color: #45b6fe;*/
+/*border-radius: 50%;*/
+/*position: fixed;*/
+/*top: 50%;*/
+/*left: 50%;*/
+/*}*/
+
+div.circle {
+    border-radius: 50%;
+    position: fixed;
+}

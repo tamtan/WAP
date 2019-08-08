@@ -1,0 +1,129 @@
+header {
+    width: 100%;
+    height: 50px;
+    background: url("./images/bannerbg.png") repeat-x top left;
+}
+
+header img {
+    display: block;
+    width: 800px;
+    margin: 0px auto;
+}
+
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 8pt;
+    color: black;
+    margin: 0px;
+    padding: 0px;
+}
+
+div {
+    display: block;
+}
+
+#container {
+    width: 100%;
+    background-image: url("images/background.png");
+}
+
+.title {
+    text-align: center;
+    margin: 0px;
+    padding: 20px;
+    text-shadow: 3px 3px #999999;
+    font-size: 24pt;
+}
+
+.content {
+    border: 4px solid gray;
+    border-radius: 20px;
+    overflow: hidden;
+
+    width: 792px;
+    margin: 0px auto;
+}
+
+.percent {
+    width: 100%;
+    height: 83px;
+    background: url(./images/rbg.png) repeat-x top left;
+}
+
+.percent span {
+    font-size: 48pt;
+    font-weight: bold;
+    color: red;
+}
+
+.percent img {
+    float: left;
+}
+
+.general-overview {
+    float: right;
+    width: 246px;
+    background-color: #A2B964;
+    height: 100%;
+    font-size: 8pt;
+    font-family: Arial, sans-serif;
+}
+
+.review-col {
+    float: left;
+    width: 47%;
+    margin-left: 2%;
+}
+
+.comment {
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: #E8DC9B;
+    font-weight: bold;
+    font-size: 8pt;
+    padding: 8px;
+    overflow: hidden;
+}
+
+.w3c-validator {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+.review-content {
+    float: left;
+    width: 546px;
+}
+
+.index {
+    clear: both;
+    text-align: center;
+    background-color: #A2B964;
+    padding: 5px;
+    margin: 0px;
+}
+
+.general-overview dt:first-child {
+    margin-top: 0px;
+}
+
+.general-overview dt {
+    margin-top: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+dd {
+    display: block;
+}
+
+dl.detail-overview {
+    padding: 10pt 10pt 0pt;
+    margin: 0px;
+}
+
+.comment img {
+    float: left;
+    margin-right: 5px;
+}

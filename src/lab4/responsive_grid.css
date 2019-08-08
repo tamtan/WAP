@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    grid-area: header;
+    background-color: lightblue;
+    display: inline-block;
+    color: black;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24pt;
+    padding: 20px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #2F4F4F;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 18pt;
+    color: white;
+    padding: 20px;
+}
+
+div a {
+    float: left;
+    padding: 5px 10px;
+    border-right: 1px solid #101C1C;
+}
+
+div.menu {
+    grid-area: menu;
+    width: 100%;
+    background-color: #2F4F4F;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: white;
+    font-size: 13pt;
+    padding: 15px;
+}
+
+.column1 {
+    grid-area: column1;
+    background-color: #AAAAAA;
+    min-height: 200px;
+    padding: 15px;
+}
+
+.column2 {
+    grid-area: column2;
+    background-color: #BBBBBB;
+    min-height: 200px;
+    padding: 15px;
+}
+
+.column3 {
+    grid-area: column3;
+    background-color: #CCCCCC;
+    min-height: 200px;
+    padding: 15px;
+}
+
+/*.grid-container {*/
+/*display: grid;*/
+/*grid-template-areas: 'header header header header header header header header header header header header'*/
+/*'menu menu menu menu menu menu menu menu menu menu menu menu'*/
+/*'column1 column1 column1 column2 column2 column2 column2 column2 column2 column3 column3 column3'*/
+/*'footer footer footer footer footer footer footer footer footer footer footer footer';*/
+/*}*/
+.grid-container {
+    display: grid;
+    grid-template-areas: 'header header header header header header header header' 'menu menu menu menu menu menu menu menu' 'column1 column1 column2 column2 column2 column2 column3 column3' 'footer footer footer footer footer footer footer footer';
+}
+
+@media screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-areas: 'header header header header header header header header' 'menu menu menu menu menu menu menu menu' 'column1 column1 column1 column1 column3 column3 column3 column3 ' 'column2 column2 column2 column2 column2 column2 column2 column2' 'footer footer footer footer footer footer footer footer';
+
+    }
+}
